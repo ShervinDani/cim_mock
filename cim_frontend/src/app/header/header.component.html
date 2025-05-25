@@ -1,0 +1,25 @@
+<!-- header.component.html -->
+ <div class="header">
+  <div class="left-header">
+    <img src="images\logo.png" >
+  </div>
+  <div class="right-header">
+      <nav class="nav-bar">
+  <a [routerLink]="['recharge']" routerLinkActive="router-link-active">
+    Recharge
+  </a>
+  <a [routerLink]="['customerregister']" routerLinkActive="router-link-active">
+    Register Customer
+  </a>
+  <a [routerLink]="['status']" routerLinkActive="router-link-active">
+    Status Tracking
+  </a>
+</nav>
+  </div>
+ </div>
+
+
+
+ 
+
+<router-outlet></router-outlet>
