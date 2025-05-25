@@ -9,5 +9,4 @@ public class CimBackendApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(CimBackendApplication.class, args);
 	}
-
 }
