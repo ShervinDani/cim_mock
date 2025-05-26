@@ -3,6 +3,7 @@ package com.cim.backend.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.cim.backend.entity.Customer;
@@ -16,8 +17,10 @@ public class CustomerController {
 	private CustomerService customerService;
 	
 	@PostMapping("/registerNewCustomer")
-	public Customer registerCustomer(Customer newCustomer)
+	public Customer registerCustomer(@RequestBody Customer newCustomer)
 	{
+		System.out.println(newCustomer);
+		
 		return customerService.registerCustomer(newCustomer);
 	}
 }

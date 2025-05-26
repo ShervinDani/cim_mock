@@ -2,6 +2,7 @@ import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-customerform1',
@@ -10,10 +11,9 @@ import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angula
   styleUrl: './customerform1.component.css'
 })
 export class Customerform1Component {
-
   addressForm: FormGroup;
 
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder, private router : Router) {
     this.addressForm = this.fb.group({
       addressLine1: ['', Validators.required],
       addressLine2: [''],
@@ -27,8 +27,9 @@ export class Customerform1Component {
   onSubmit(): void {
     if (this.addressForm.valid) {
       console.log('Address submitted:', this.addressForm.value);
+      this.router.navigate(['retailer/home/documentform'])
     } else {
-      this.addressForm.markAllAsTouched(); // Shows all validation errors
+      this.addressForm.markAllAsTouched(); 
     }
   }
 }
