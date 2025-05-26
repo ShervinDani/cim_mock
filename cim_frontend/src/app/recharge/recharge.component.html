@@ -1,24 +1,21 @@
-<div class="container-fluid py-4 custom-bg">
-  <div class="row g-4">
-    <div class="col-12 col-sm-6 col-lg-4" *ngFor="let plan of data">
-      <div class="card border shadow-sm h-100 rounded-4">
-        <div class="card-body d-flex flex-column">
-          <div class="mb-3">
-            <h5 class="card-title fw-bold text-dark">{{ plan.name }}</h5>
-            <h6 class="text-primary fw-semibold">₹ {{ plan.price }}</h6>
-          </div>
-          <div class="mb-3">
-            <p class="mb-1"><strong>Validity:</strong> {{ plan.expiryDate}} days</p>
-            <p class="mb-1"><strong>Calls:</strong> {{ plan.voiceLimit }} min</p>
-            <p class="mb-1"><strong>SMS:</strong> {{ plan.smsLimit }}</p>
-            <p class="mb-0"><strong>Data:</strong> {{ plan.dataLimit }} GB</p>
-            <p class="mb-0"><strong>Type:</strong> {{ plan.type }}</p>
-          </div>
-
-          <div class="mt-auto text-center">
-            <button class="btn w-100 custom-recharge-btn" (click)="pay(plan)">Recharge</button>
-          </div>
-        </div>
+<div class="container">
+  <div class="card" *ngFor="let i of data">
+    <div class="top">
+      <div class="top-left">
+        <h4><strong>{{i.price}}</strong></h4>
+      </div>
+      <div class="top-right">{{i.type}}</div>
+    </div>
+    <div class="bottom">
+      <div class="bottom-left">
+        <p><strong>{{i.name}}</strong></p>
+        <p><strong>Validity:</strong> {{i.expiryDate}} days</p>
+        <p><strong>Calls:</strong> {{i.voiceLimit}} min</p>
+        <p><strong>SMS:</strong> {{i.smsLimit}}</p>
+        <p><strong>Data:</strong> {{i.dataLimit}} GB</p>
+      </div>
+      <div class="bottom-right">
+        <button class="button" (click)="pay(i)">Buy..!</button>
       </div>
     </div>
   </div>

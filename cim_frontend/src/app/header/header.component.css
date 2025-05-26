@@ -1,87 +1,42 @@
-.header {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+.header{
+  background-color: #002147;
   display: flex;
-  align-items: center;
-  background-color: white;
+  height: 100px;
 }
 
-.left-header {
-  padding: 30px;
+.left-header{
+  padding: 20px;
 }
 
-img {
-  height: 50px;
-}
-
-.right-header {
-  padding: 30px;
-  flex-grow: 1;
-  display: flex;
-  align-items: center;
-}
-
-.nav-bar {
-  display: flex;
-  justify-content: space-around;
-  gap: 50px;
-  width: 100%;
-  padding: 10px 0;
-}
-
-.nav-bar a {
-  position: relative;
-  text-decoration: none;
-  color: black;
-  font-weight: 600;
-  padding: 6px 0;
-  transition: color 0.3s ease;
-}
-
-.nav-bar a::after {
-  content: '';
-  position: absolute;
-  left: 0;
-  bottom: -10px;
-  width: 0%;
-  height: 4px;
-  background-color: #0A3AFF;
-  transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-/* Show underline on hover */
-.nav-bar a:hover::after {
+.right-header{
+  padding: 40px;
   width: 100%;
 }
 
-/* Change color and trigger underline when active */
-.nav-bar a.router-link-active {
-  color: #0A3AFF;
+h1{
+  color: #fff;
+  font-size: 50px;
 }
 
-/* Animate underline when active */
-.nav-bar a.router-link-active::after {
+nav{
+  display: flex;
+  justify-content: space-between;
   width: 100%;
 }
 
-/* Responsive layout for smaller screens */
-@media (max-width: 600px) {
-  .header {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-  .left-header,
-  .right-header {
-    padding: 15px 10px;
-    width: 100%;
-  }
+a{
+  color: #ffff;
+  font-size: 20px;
+  transition: all 0.5s;
+}
 
-  .nav-bar {
-    flex-direction: column;
-    gap: 15px;
-  }
+a:hover{
+  text-shadow: black;
+  text-shadow: 2px 2px 4px black;
+  font-size: 25px;
+  color: #ffff;
+}
 
-  .nav-bar a {
-    padding: 10px 0;
-    font-size: 1.1rem;
-  }
+.router-link-active{
+  color: #002147;
 }

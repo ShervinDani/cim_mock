@@ -8,11 +8,16 @@ import { Observable } from 'rxjs';
 export class CustomerregisterserviceService {
 
   private customerRegister1Url = 'http://localhost:1010/registerNewCustomer';
+  private customerRegister2Url = 'http://localhost:1010/registerCustomerAddress';
 
   constructor(private http : HttpClient) { }
 
-  postCustomerRegister(data : any) : Observable<any> {
+  postCustomerRegister1(data : any) : Observable<any> {
     return this.http.post(this.customerRegister1Url, data);
+  }
+
+  postCustomerRegister2(data : any) : Observable<any> {
+    return this.http.post(this.customerRegister2Url, data);
   }
 
 }

@@ -1,133 +1,116 @@
-/* Container */
- 
 .container {
-  max-width: 600px;
-  margin: 2rem auto;
-  padding: 1.5rem 2rem;
-  background-color: #f5f8ff;
+  max-width: 650px;
+  margin-left: 350px;
+  padding: 40px;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  background-color: #f3f6fc;
   border-radius: 12px;
   box-shadow: 0 6px 15px rgba(0,0,0,0.1);
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
- 
-/* Heading */
-h2 {
-  color: #007bff;
-  margin-bottom: 1.5rem;
+
+h3{
+  color: #002147;
+  margin-left: 90px;
   font-weight: 700;
-  text-align: center;
 }
- 
-/* Labels */
-label {
-  display: block;
-  margin-bottom: 0.4rem;
-  font-weight: 600;
-  color: #333;
+
+label{
+  font-size: 15px;
+  font-weight: bold;
+  font-style: initial;
 }
- 
-/* Inputs */
-input[type="text"],
-input[type="email"],
-input[type="date"],
-input[type="tel"] {
-  width: 100%;
-  padding: 0.5rem 0.7rem;
-  margin-bottom: 1rem;
-  border: 1.5px solid #ced4da;
-  border-radius: 6px;
-  font-size: 1rem;
-  transition: border-color 0.3s ease;
+
+input[type='text']{
+  margin: 22px;
+  height: 40px;
+  width: 70%;
+  border-width: 2px;
+  border-color: black;
+  border-radius: 10px;
+
 }
- 
-input[type="text"]:focus,
-input[type="email"]:focus,
-input[type="date"]:focus,
-input[type="tel"]:focus {
-  outline: none;
-  border-color: #007bff;
-  box-shadow: 0 0 8px rgba(0,123,255,0.3);
+
+input[type='date']{
+  margin: 22px;
+  margin-left: 10px;
+  height: 40px;
+  width: 70%;
+  border-width: 2px;
+  border-color: black;
+  border-radius: 10px;
 }
- 
-/* Error messages */
-.error-msg {
-  color: #dc3545;
-  font-size: 0.875rem;
-  margin-top: -0.8rem;
-  margin-bottom: 1rem;
-}
- 
-/* Submit button */
-button[type="submit"] {
-  width: 100%;
-  background-color: #007bff;
-  color: #fff;
-  border: none;
-  padding: 0.65rem;
-  font-size: 1.1rem;
-  font-weight: 700;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
- 
-button[type="submit"]:hover {
-  background-color: #0056b3;
-}
- 
-/* Gender capsule radio buttons */
-.gender-options {
+
+.gender{
   display: flex;
-  gap: 1rem;
-  margin-bottom: 1rem;
+  gap: 20px;
 }
- 
-.gender-label {
-  position: relative;
-  cursor: pointer;
-  user-select: none;
+
+.gender-options{
+  display: flex;
+  gap: 20px;
 }
- 
-.gender-label input[type="radio"] {
-  position: absolute;
-  opacity: 0;
-  cursor: pointer;
-  width: 0;
-  height: 0;
+
+input[type='email']{
+  margin: 22px;
+  margin-left: 60px;
+  height: 40px;
+  width: 70%;
+  border-width: 2px;
+  border-color: black;
+  border-radius: 10px;
+
 }
- 
-.gender-pill {
-  display: inline-block;
-  padding: 0.4rem 1.2rem;
-  border: 2px solid #007bff;
-  border-radius: 50px;
-  color: #007bff;
+input[type='tel']{
+  margin-bottom: 22px;
+  height: 40px;
+  width: 70%;
+  border-width: 2px;
+  border-color: black;
+  border-radius: 10px;
+}
+
+textarea{
+  border-width: 3px;
+  border-color: black;
+  border-radius: 10px;
+}
+
+.address
+{
+  display: flex;
+}
+
+.left-address{
+  margin-top: 30px;
+}
+.right-address{
+  padding-left: 30px;
+}
+
+button{
+  margin-top: 10px;
+  margin-left: 190px;
+  height: 60px;
+  width: 150px;
+  color: white;
+  font-size: large;
   font-weight: 600;
-  transition: background-color 0.3s, color 0.3s;
+  background-color: #002147;
+  border-radius: 10px;
+  transition: 0.3s;
 }
- 
-/* Hover effect */
-.gender-label:hover .gender-pill {
-  background-color: #007bff;
-  color: white;
+
+button:hover{
+  font-weight: 1000;
+  color: #002147;
+  border-color: #002147;
+  transform: translateY(-10px);
+  box-shadow: 4px 4px 8px 0px #002147;
+  background-color: white;
 }
- 
-/* Checked (selected) effect */
-.gender-label input[type="radio"]:checked + .gender-pill {
-  background-color: #0056b3;
-  color: white;
-  border-color: #0056b3;
+
+.error{
+  color: red;
 }
- 
-/* Responsive */
-@media (max-width: 576px) {
-  .container {
-    padding: 1rem;
-    margin: 1rem;
-  }
- 
-  h2 {
-    font-size: 1.4rem;
-  }
-}
- 
