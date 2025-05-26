@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { PlanretriveService } from '../planretrive.service';
 import { CommonModule } from '@angular/common';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-recharge',
@@ -12,7 +13,7 @@ export class RechargeComponent implements OnInit{
 
   data : any[]=[];
 
-  constructor(private planservice : PlanretriveService){}
+  constructor(private planservice : PlanretriveService, private router : Router){}
 
   ngOnInit(): void {
     this.planservice.getAllPlans().subscribe({
@@ -25,5 +26,9 @@ export class RechargeComponent implements OnInit{
       }
     });
   }
-
+  pay(data : any) : void {
+    console.log(data)
+    localStorage.setItem("plan",JSON.stringify(data));
+    this.router.navigate(['retailer/home/payment'])
+  }
 }

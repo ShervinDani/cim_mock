@@ -1,21 +1,23 @@
-<!-- recharge.component.html -->
+<div class="container-fluid py-4 custom-bg">
+  <div class="row g-4">
+    <div class="col-12 col-sm-6 col-lg-4" *ngFor="let plan of data">
+      <div class="card border shadow-sm h-100 rounded-4">
+        <div class="card-body d-flex flex-column">
+          <div class="mb-3">
+            <h5 class="card-title fw-bold text-dark">{{ plan.name }}</h5>
+            <h6 class="text-primary fw-semibold">₹ {{ plan.price }}</h6>
+          </div>
+          <div class="mb-3">
+            <p class="mb-1"><strong>Validity:</strong> {{ plan.expiryDate}} days</p>
+            <p class="mb-1"><strong>Calls:</strong> {{ plan.voiceLimit }} min</p>
+            <p class="mb-1"><strong>SMS:</strong> {{ plan.smsLimit }}</p>
+            <p class="mb-0"><strong>Data:</strong> {{ plan.dataLimit }} GB</p>
+            <p class="mb-0"><strong>Type:</strong> {{ plan.type }}</p>
+          </div>
 
-<div class="container mt-4">
-  <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
-    <div class="col" *ngFor="let plan of data">
-      <div class="card h-100 shadow">
-        <div class="card-body">
-          <h5 class="card-title">{{ plan.planName }}</h5>
-          <h6 class="card-subtitle mb-2 text-muted">₹ {{ plan.price }}</h6>
-          <p class="card-text">
-            <strong>Validity:</strong> {{ plan.validity }} days<br>
-            <strong>Calls:</strong> {{ plan.call }} minutes<br>
-            <strong>SMS:</strong> {{ plan.sms }} messages<br>
-            <strong>Data:</strong> {{ plan.internet }} MB<br>
-          </p>
-        </div>
-        <div class="card-footer text-end">
-          <button class="btn btn-primary">Recharge</button>
+          <div class="mt-auto text-center">
+            <button class="btn w-100 custom-recharge-btn" (click)="pay(plan)">Recharge</button>
+          </div>
         </div>
       </div>
     </div>
