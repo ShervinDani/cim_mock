@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
-import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-customerform1',
@@ -9,39 +9,24 @@ import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
   styleUrl: './customerform1.component.css'
 })
 export class Customerform1Component {
-imageBase64: string = '';
-  docBase64: string = '';
-  isPDFFile: boolean = false;
+  addressForm: FormGroup;
 
-  onImageSelected(event: any): void {
-    const file: File = event.target.files[0];
-    if (file && file.type.startsWith('image/')) {
-      this.convertToBase64(file).then(
-        (base64) => (this.imageBase64 = base64),
-        (err) => console.error('Image conversion failed', err)
-      );
-    }
-  }
-
-  onDocumentSelected(event: any): void {
-    const file: File = event.target.files[0];
-    if (file) {
-      this.isPDFFile = file.type === 'application/pdf';
-
-      this.convertToBase64(file).then(
-        (base64) => (this.docBase64 = base64),
-        (err) => console.error('Document conversion failed', err)
-      );
-    }
-  }
-
-  convertToBase64(file: File): Promise<string> {
-    return new Promise((resolve, reject) => {
-      const reader = new FileReader();
-      reader.readAsDataURL(file);
-
-      reader.onload = () => resolve(reader.result as string);
-      reader.onerror = (err) => reject(err);
+  constructor(private fb: FormBuilder) {
+    this.addressForm = this.fb.group({
+      addressLine1: ['', Validators.required],
+      addressLine2: [''],
+      city: ['', Validators.required],
+      state: ['', Validators.required],
+      postalCode: ['', Validators.required],
+      country: ['', Validators.required]
     });
+  }
+
+  onSubmit(): void {
+    if (this.addressForm.valid) {
+      console.log('Address submitted:', this.addressForm.value);
+    } else {
+      this.addressForm.markAllAsTouched(); 
+    }
   }
 }
