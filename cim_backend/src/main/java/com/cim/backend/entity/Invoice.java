@@ -7,21 +7,24 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 
 @Entity
-@Table(name = "crm_customer")
 @Data
-public class Customer {
+@Table(name = "crm_invoice")
+@AllArgsConstructor
+@NoArgsConstructor
+public class Invoice {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long customerId;
-    private String firstName;
-    private String lastName;
-    private LocalDate dateOfBirth;
-    private String gender;
-    private String email;
-    public String address;
-    private String phoneNumber;
+    private Long id;
+    private Long userId;
+    private double amount;
+    private LocalDate billingDate;
+    private String status; // Paid or Unpaid
+    // Getters and Setters
 }
+

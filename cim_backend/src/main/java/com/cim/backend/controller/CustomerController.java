@@ -2,7 +2,9 @@ package com.cim.backend.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -22,5 +24,16 @@ public class CustomerController {
 		System.out.println(newCustomer);
 		
 		return customerService.registerCustomer(newCustomer);
+	}
+	
+	@GetMapping("/getCustomerDetails")
+	public Customer getCustomerDetails(@RequestBody long customerId) {
+		return customerService.getCustomerDetails(customerId);
+		
+	}
+	
+	@PutMapping("/updateCustomer")
+	public String updateCustomer(@RequestBody Customer customer) {
+		return customerService.updateCustomer(customer);
 	}
 }

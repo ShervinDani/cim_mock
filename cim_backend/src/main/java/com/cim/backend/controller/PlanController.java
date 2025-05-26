@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.cim.backend.entity.Plan;
@@ -20,6 +21,18 @@ public class PlanController {
 	@GetMapping("/getallplans")
 	public List<Plan> getAllPlans(){
 		return planService.getAllPlans();
+	}
+	
+	@GetMapping("/getUserPlan")
+	public Plan getUserPlan(@RequestBody Plan plan) {
+		return planService.getUserPlan(plan);
+		
+	}
+	
+	@GetMapping("/viewAllPlans")
+	public List<Plan> viewAllplans(){
+		return planService.viewAllPlans();
+		
 	}
 
 }
