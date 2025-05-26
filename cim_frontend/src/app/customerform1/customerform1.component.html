@@ -1,0 +1,33 @@
+<div class="file-upload">
+  <h3>Upload Image</h3>
+  <input type="file" accept="image/*" (change)="onImageSelected($event)" />
+  <div *ngIf="imageBase64">
+    <h4>Image Preview:</h4>
+    <img [src]="imageBase64" alt="Uploaded Image" width="250" />
+    <h4>Image Base64:</h4>
+    <textarea [value]="imageBase64" readonly></textarea>
+  </div>
+
+  <hr />
+
+  <h3>Upload Document</h3>
+  <input
+    type="file"
+    accept=".pdf,.doc,.docx,application/pdf,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document"
+    (change)="onDocumentSelected($event)"
+  />
+  <div *ngIf="docBase64">
+    <ng-container *ngIf="isPDFFile; else docNote">
+      <h4>PDF Preview:</h4>
+      <iframe [src]="docBase64" width="100%" height="500px"></iframe>
+    </ng-container>
+
+    <ng-template #docNote>
+      <h4>Document Uploaded</h4>
+      <p>Preview not supported for Word documents.</p>
+    </ng-template>
+
+    <h4>Document Base64:</h4>
+    <textarea [value]="docBase64" readonly></textarea>
+  </div>
+</div>

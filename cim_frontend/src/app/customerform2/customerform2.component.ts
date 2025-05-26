@@ -1,18 +1,16 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
-import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
 
 @Component({
-  selector: 'app-customerform1',
-  imports: [CommonModule, ReactiveFormsModule],
-  templateUrl: './customerform1.component.html',
-  styleUrl: './customerform1.component.css'
+  selector: 'app-customerform2',
+  imports: [CommonModule],
+  templateUrl: './customerform2.component.html',
+  styleUrl: './customerform2.component.css'
 })
-export class Customerform1Component {
-imageBase64: string = '';
+export class Customerform2Component {
+  imageBase64: string = '';
   docBase64: string = '';
   isPDFFile: boolean = false;
-
   onImageSelected(event: any): void {
     const file: File = event.target.files[0];
     if (file && file.type.startsWith('image/')) {
@@ -29,7 +27,9 @@ imageBase64: string = '';
       this.isPDFFile = file.type === 'application/pdf';
 
       this.convertToBase64(file).then(
-        (base64) => (this.docBase64 = base64),
+        (base64) => {(this.docBase64 = base64)
+          console.log(base64);
+        },
         (err) => console.error('Document conversion failed', err)
       );
     }
@@ -41,7 +41,9 @@ imageBase64: string = '';
       reader.readAsDataURL(file);
 
       reader.onload = () => resolve(reader.result as string);
+      console.log(reader);
       reader.onerror = (err) => reject(err);
+
     });
   }
 }
