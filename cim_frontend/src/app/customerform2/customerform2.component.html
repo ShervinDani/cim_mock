@@ -1,17 +1,23 @@
-<div class="file-upload">
-  <h3>Upload Image</h3>
-  <input type="file" accept="image/*" (change)="onImageSelected($event)" />
-  <div *ngIf="imageBase64">
-    <h4>Image Preview:</h4>
-    <img [src]="imageBase64" alt="Uploaded Image" width="250" />
-  </div>
-  <hr />
+<div class="body">
+  <div class="container file-upload">
+    <h2>Document Form</h2>
 
-  <h3>Upload Document</h3>
-  <input
-    type="file"
-    accept=".pdf,application/pdf"
-    (change)="onDocumentSelected($event)"
-  />
+    <form (ngSubmit)="onSubmit()">
+      <h3>Upload Image</h3>
+      <input type="file" accept="image/*" (change)="onImageSelected($event)" />
+
+      <div *ngIf="imageBase64">
+        <h4>Image Preview:</h4>
+        <img [src]="imageBase64" alt="Uploaded Image" width="250" />
+        <h4>Image Base64:</h4>
+        <textarea [value]="imageBase64" readonly></textarea>
+      </div>
+
+      <hr />
+
+      <h3>Upload Document</h3>
+      <input type="file" accept=".pdf,application/pdf" (change)="onDocumentSelected($event)" />
+
+      <button type="submit">Submit Document</button>
+    </form>
 </div>
-
