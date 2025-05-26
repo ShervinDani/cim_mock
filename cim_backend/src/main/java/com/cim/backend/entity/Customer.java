@@ -1,5 +1,7 @@
 package com.cim.backend.entity;
 
+import java.time.LocalDate;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -7,20 +9,18 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import lombok.Data;
 
-@Entity
-@Table(name = "cim_plan")
-@Data
-public class Plan {
-	@Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-    private String name;
-    private String description;
-    private double price;
-    private int dataLimit;
-    private int voiceLimit;
-    private int smsLimit;
-    private int expiryDate;
-    private String type;
 
+@Entity
+@Table(name = "crm_customer")
+@Data
+public class Customer {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long customerId;
+    private String firstName;
+    private String lastName;
+    private LocalDate dateOfBirth;
+    private String gender;
+    private String email;
+    private String phoneNumber;
 }

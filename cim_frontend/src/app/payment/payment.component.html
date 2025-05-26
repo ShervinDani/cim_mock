@@ -1,0 +1,45 @@
+<div class="container-fluid py-4 custom-bg d-flex">
+  <div class="left-side" style="flex: 1; max-width: 50%; padding-right: 1rem;">
+    <h4 class="mb-4 text-center">Selected Plan Details</h4>
+    <table class="table table-bordered text-center">
+      <tbody>
+        <tr>
+          <th>Name</th>
+          <td>{{ plan.name }}</td>
+        </tr>
+        <tr>
+          <th>Description</th>
+          <td>{{ plan.description }}</td>
+        </tr>
+        <tr>
+          <th>Price (₹)</th>
+          <td>{{ plan.price }}</td>
+        </tr>
+        <tr>
+          <th>Data Limit</th>
+          <td>{{ plan.dataLimit }} GB</td>
+        </tr>
+        <tr>
+          <th>Voice Limit</th>
+          <td>{{ plan.voiceLimit }} min</td>
+        </tr>
+        <tr>
+          <th>SMS Limit</th>
+          <td>{{ plan.smsLimit }}</td>
+        </tr>
+        <tr>
+          <th>Validity</th>
+          <td>{{ plan.expiryDate }} days</td>
+        </tr>
+        <tr>
+          <th>Type</th>
+          <td>{{ plan.type }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="right-side" style="flex: 1; max-width: 50%; display: flex; align-items: center; justify-content: center;">
+    
+  </div>
+</div>

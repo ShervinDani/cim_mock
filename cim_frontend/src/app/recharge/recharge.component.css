@@ -1,0 +1,23 @@
+.custom-bg {
+  background-color: #f5f8ff;
+}
+
+.custom-recharge-btn {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 0.75rem;
+  font-weight: 500;
+  transition: background-color 0.3s ease;
+}
+
+.custom-recharge-btn:hover {
+  background-color: #0069d9;
+}
+
+.custom-recharge-btn:active,
+.custom-recharge-btn:focus {
+  background-color: #0056b3 !important;
+  outline: none;
+  box-shadow: none;
+}
