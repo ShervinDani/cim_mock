@@ -1,0 +1,42 @@
+<div class="body">
+  <div class="container">
+    <h2>Customer Address</h2>
+    <form [formGroup]="addressForm" (ngSubmit)="onSubmit()">
+
+      <label for="addressLine1">Address Line 1</label>
+      <input id="addressLine1" type="text" formControlName="addressLine1" />
+      <div *ngIf="addressForm.get('addressLine1')?.invalid && addressForm.get('addressLine1')?.touched" class="error-msg">
+        Address Line 1 is required.
+      </div>
+
+      <label for="addressLine2">Address Line 2</label>
+      <input id="addressLine2" type="text" formControlName="addressLine2" />
+
+      <label for="city">City</label>
+      <input id="city" type="text" formControlName="city" />
+      <div *ngIf="addressForm.get('city')?.invalid && addressForm.get('city')?.touched" class="error-msg">
+        City is required.
+      </div>
+
+      <label for="state">State</label>
+      <input id="state" type="text" formControlName="state" />
+      <div *ngIf="addressForm.get('state')?.invalid && addressForm.get('state')?.touched" class="error-msg">
+        State is required.
+      </div>
+
+      <label for="postalCode">Postal Code</label>
+      <input id="postalCode" type="text" formControlName="postalCode" />
+      <div *ngIf="addressForm.get('postalCode')?.invalid && addressForm.get('postalCode')?.touched" class="error-msg">
+        Postal Code is required.
+      </div>
+
+      <label for="country">Country</label>
+      <input id="country" type="text" formControlName="country" />
+      <div *ngIf="addressForm.get('country')?.invalid && addressForm.get('country')?.touched" class="error-msg">
+        Country is required.
+      </div>
+
+      <button type="submit">Save Address</button>
+    </form>
+  </div>
+</div>
