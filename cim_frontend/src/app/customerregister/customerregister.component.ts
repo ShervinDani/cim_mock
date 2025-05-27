@@ -40,12 +40,6 @@ export class CustomerregisterComponent {
     
   } else {
     this.customerForm.markAllAsTouched();
-    Object.keys(this.customerForm.controls).forEach(key => {
-    const control = this.customerForm.get(key);
-    if (control && control.invalid) {
-      console.warn(`Invalid control: ${key}`, control.errors);
-    }
-  });
   }
   }
   

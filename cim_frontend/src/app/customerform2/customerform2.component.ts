@@ -1,55 +1,64 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
+import { CustomerregisterserviceService } from '../customerregisterservice.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-customerform2',
   standalone: true,
   imports: [CommonModule],
   templateUrl: './customerform2.component.html',
-  styleUrl: './customerform2.component.css'
+  styleUrls: ['./customerform2.component.css']
 })
 export class Customerform2Component {
-  imageBase64: string = '';
-  docBase64: string = '';
-  isPDFFile: boolean = false;
+  imageFile!: File;
+  pdfFile!: File;
+
+  constructor(private router : Router, private customerService: CustomerregisterserviceService) {}
 
   onImageSelected(event: Event): void {
     const file = (event.target as HTMLInputElement).files?.[0];
     if (file && file.type.startsWith('image/')) {
-      this.convertToBase64(file).then(
-        base64 => this.imageBase64 = base64,
-        err => console.error('Image conversion failed', err)
-      );
+      this.imageFile = file;
     }
   }
 
   onDocumentSelected(event: Event): void {
     const file = (event.target as HTMLInputElement).files?.[0];
     if (file) {
-      this.isPDFFile = file.type === 'application/pdf';
-      this.convertToBase64(file).then(
-        base64 => {
-          this.docBase64 = base64;
-          console.log('Document Base64:', base64);
-        },
-        err => console.error('Document conversion failed', err)
-      );
+      this.pdfFile = file;
     }
   }
 
-  convertToBase64(file: File): Promise<string> {
-    return new Promise((resolve, reject) => {
-      const reader = new FileReader();
-      reader.readAsDataURL(file);
-      reader.onload = () => resolve(reader.result as string);
-      reader.onerror = (error) => reject(error);
+  onSubmit(event?: Event): void {
+    if (event) event.preventDefault();
+
+    if (!this.imageFile || !this.pdfFile) {
+      alert('Please upload both image and document before submitting.');
+      return;
+    }
+
+    const customer = JSON.parse(localStorage.getItem('userDetails') || '{}');
+
+    const formData = new FormData();
+    formData.append('image', this.imageFile);
+    formData.append('pdf', this.pdfFile);
+    formData.append('customer', new Blob([JSON.stringify(customer)], { type: 'application/json' }));
+
+    this.customerService.postCustomerRegister2(formData).subscribe({
+      next: (res) => {
+        console.log('Response:', res);
+        alert('Document submitted successfully!');
+        this.router.navigate(['retailer/home/numberselection']);
+      },
+      error: (err) => {
+        console.error('Error:', err);
+        alert('Error submitting document.');
+      }
     });
   }
 
-  onSubmit(): void {
-    console.log('Submitting Document Form');
-    console.log('Image Base64:', this.imageBase64);
-    console.log('Document Base64:', this.docBase64);
-    alert('Document submitted successfully!');
+  preventFormSubmit(event: Event): void {
+    event.preventDefault();
   }
 }

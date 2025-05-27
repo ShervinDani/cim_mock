@@ -1,0 +1,12 @@
+<div class="container">
+    <div class="card" *ngFor="let i of data">
+        <div class="flex-card">
+            <div class="left-card">
+                <h3>{{i.phoneNumber}}</h3>
+            </div>
+            <div class="right-card">
+                <button (click)="selectNumber(i)">Choose</button>
+            </div>
+        </div>
+    </div>
+</div>
