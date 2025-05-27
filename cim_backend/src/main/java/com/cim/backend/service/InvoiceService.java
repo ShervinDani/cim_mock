@@ -14,7 +14,7 @@ public class InvoiceService {
 	InvoiceRepository invoiceRepository;
 	
 	public List<Invoice> getInvoices(Long id) {
-        return invoiceRepository.findByCustomerId(id);
+        return invoiceRepository.findByUserId(id);
     }
 
 }

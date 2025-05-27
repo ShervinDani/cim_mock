@@ -9,5 +9,5 @@ import com.cim.backend.entity.Invoice;
 
 @Repository
 public interface InvoiceRepository extends JpaRepository<Invoice, Long>{
-	public List<Invoice> findByCustomerId(long id);
+	public List<Invoice> findByUserId(long id);
 }
