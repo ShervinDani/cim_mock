@@ -43,13 +43,6 @@
       <div *ngIf="customerForm.get('email')?.errors?.['required']">Email is required.</div>
       <div *ngIf="customerForm.get('email')?.errors?.['email']">Please enter a valid email.</div>
     </div>
- 
-    <label for="phoneNumber">Phone Number</label>
-    <input id="phoneNumber" type="tel" formControlName="phoneNumber" placeholder="10 digits only" />
-    <div *ngIf="customerForm.get('phoneNumber')?.invalid && customerForm.get('phoneNumber')?.touched" class="error">
-      <div *ngIf="customerForm.get('phoneNumber')?.errors?.['required']">Phone Number is required.</div>
-      <div *ngIf="customerForm.get('phoneNumber')?.errors?.['pattern']">Enter a valid 10-digit phone number.</div>
-    </div>
     <div class="address">
       <div class="left-address">
         <label for="address">Address</label>

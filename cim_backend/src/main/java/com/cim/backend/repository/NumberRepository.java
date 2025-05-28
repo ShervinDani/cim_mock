@@ -10,5 +10,6 @@ import java.util.List;
 public interface NumberRepository extends JpaRepository<Number, Long>{
 	
 	public List<Number> findByStatus(int status);
+	public Number findByPhoneNumber(long phoneNumber);
 
 }

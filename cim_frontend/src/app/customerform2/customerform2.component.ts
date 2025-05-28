@@ -38,7 +38,7 @@ export class Customerform2Component {
       return;
     }
 
-    const customer = JSON.parse(localStorage.getItem('userDetails') || '{}');
+    const customer = JSON.parse(sessionStorage.getItem('userDetails') || '{}');
 
     const formData = new FormData();
     formData.append('image', this.imageFile);

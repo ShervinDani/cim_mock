@@ -25,6 +25,12 @@ public class CustomerService {
 	private NumberRepository numberRepository;
 
 	public Customer registerCustomer(Customer newCustomer) {
+		if(newCustomer.getPhoneNumber() != null)
+		{
+			Number number = numberRepository.findByPhoneNumber(Long.parseLong(newCustomer.getPhoneNumber()));
+			number.setStatus(1);
+			numberRepository.save(number);
+		}
 		return customerRepository.save(newCustomer);
 	}
 	public Customer getCustomerDetails(Long id) {

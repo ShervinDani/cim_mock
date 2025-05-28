@@ -21,7 +21,6 @@ export class CustomerregisterComponent {
       dateOfBirth: ['', Validators.required],
       gender: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
-      phoneNumber: ['', [Validators.required, Validators.pattern('^[0-9]{10}$')]],
       address: ['',Validators.required]
     });
   }

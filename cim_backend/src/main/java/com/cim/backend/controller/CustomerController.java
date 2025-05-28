@@ -65,4 +65,10 @@ public class CustomerController {
 		return customerService.getAllActiveNumbers();
 	}
 	
+	@PutMapping("/activateNumber")
+	public Customer activateNumber(@RequestBody Customer customer)
+	{
+		return customerService.registerCustomer(customer);
+	}
+	
 }
