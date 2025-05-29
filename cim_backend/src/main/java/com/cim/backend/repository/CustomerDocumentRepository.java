@@ -4,11 +4,12 @@ import java.util.Optional;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
+
 import com.cim.backend.entity.Customer;
+import com.cim.backend.entity.CustomerDocument;
 
 @Repository
-public interface CustomerRepository extends JpaRepository<Customer, Long>{
-	Optional<Customer> findByPhoneNumber(String phoneNumber);
-
+public interface CustomerDocumentRepository extends JpaRepository<CustomerDocument, Long> {
+	Optional<CustomerDocument> findByCustomer(Customer customer);
 
 }

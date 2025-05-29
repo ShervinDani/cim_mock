@@ -24,7 +24,6 @@ public class Invoice {
     private Long userId;
     private double amount;
     private LocalDate billingDate;
-    private String status; // Paid or Unpaid
-    // Getters and Setters
+    private String status; 
 }
 

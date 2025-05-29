@@ -8,6 +8,7 @@ import org.springframework.stereotype.Repository;
 import com.cim.backend.entity.Invoice;
 
 @Repository
-public interface InvoiceRepository extends JpaRepository<Invoice, Long>{
-	public List<Invoice> findByCustomerId(long id);
+public interface InvoiceRepository extends JpaRepository<Invoice,Long>
+{
+	List<Invoice> findByUserId(Long userId);
 }

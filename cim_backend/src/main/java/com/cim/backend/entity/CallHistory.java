@@ -19,7 +19,7 @@ import lombok.NoArgsConstructor;
 public class CallHistory {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Long customerId;
     private Long userId;
     private LocalDateTime timestamp;
     private String callType;
