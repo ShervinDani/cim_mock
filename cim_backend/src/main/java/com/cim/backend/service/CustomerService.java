@@ -1,18 +1,36 @@
 package com.cim.backend.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.cim.backend.entity.Customer;
+import com.cim.backend.entity.Document;
+import com.cim.backend.entity.Number;
 import com.cim.backend.exception.EntityNotFoundException;
 import com.cim.backend.repository.CustomerRepository;
+import com.cim.backend.repository.DocumentRepository;
+import com.cim.backend.repository.NumberRepository;
 
 @Service
 public class CustomerService {
 	
 	@Autowired
 	private CustomerRepository customerRepository;
+	
+	@Autowired
+	private DocumentRepository documentRepository;
+	
+	@Autowired
+	private NumberRepository numberRepository;
 
 	public Customer registerCustomer(Customer newCustomer) {
+		if(newCustomer.getPhoneNumber() != null)
+		{
+			Number number = numberRepository.findByPhoneNumber(Long.parseLong(newCustomer.getPhoneNumber()));
+			number.setStatus(1);
+			numberRepository.save(number);
+		}
 		return customerRepository.save(newCustomer);
 	}
 	public Customer getCustomerDetails(Long id) {
@@ -36,7 +54,12 @@ public class CustomerService {
 		return "Customer Updated Successfully";
 		
 	}
+	public Document uploadDocument(Document document) {
+		return documentRepository.save(document);
+	}
 	
-	
+	public List<Number> getAllActiveNumbers(){
+		return numberRepository.findByStatus(0);
+	}
 
 }

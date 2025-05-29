@@ -8,10 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PaymentComponent implements OnInit {
   plan : any;
-  constructor(){}
+  isNUmberNeed : boolean = true;
   ngOnInit(): void {
-
-    const data = localStorage.getItem("plan");
+    const data = sessionStorage.getItem("plan");
+    const customer = JSON.parse(sessionStorage.getItem("userDetails") || '{}')
+    if(Object.keys(customer).length == 0)
+    {
+      this.isNUmberNeed = false;
+    }
     if(data != null)
     {
       this.plan = JSON.parse(data);

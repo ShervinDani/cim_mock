@@ -10,10 +10,11 @@ import com.cim.backend.repository.InvoiceRepository;
 
 @Service
 public class InvoiceService {
-    @Autowired
-    InvoiceRepository invoiceRepository;
-    
-    public List<Invoice> getInvoices(Long userId) {
-        return invoiceRepository.findByUserId(userId);
+	@Autowired
+	InvoiceRepository invoiceRepository;
+	
+	public List<Invoice> getInvoices(Long id) {
+        return invoiceRepository.findByUserId(id);
     }
+
 }

@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
 export class CustomerregisterserviceService {
 
   private customerRegister1Url = 'http://localhost:1010/registerNewCustomer';
-  private customerRegister2Url = 'http://localhost:1010/registerCustomerAddress';
+  private customerRegister2Url = 'http://localhost:1010/uploadDocument';
 
   constructor(private http : HttpClient) { }
 

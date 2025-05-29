@@ -7,5 +7,5 @@ import com.cim.backend.entity.CallHistory;
 
 @Repository
 public interface CallHistoryRepository extends JpaRepository<CallHistory, Long>{
-	public List<CallHistory> findByCustomerId(Long customerId);
+	public List<CallHistory> findByUserId(Long id);
 }

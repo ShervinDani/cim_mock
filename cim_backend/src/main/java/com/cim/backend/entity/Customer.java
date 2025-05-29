@@ -25,5 +25,5 @@ public class Customer {
     public String address;
     private String phoneNumber;
     private String status;
-    
+    private String type;
 }

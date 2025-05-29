@@ -4,9 +4,9 @@ import { RechargeComponent } from './recharge/recharge.component';
 import { CustomerregisterComponent } from './customerregister/customerregister.component';
 import { StatustrackingComponent } from './statustracking/statustracking.component';
 import { PaymentComponent } from './payment/payment.component';
-import { Customerform1Component } from './customerform1/customerform1.component';
 import { Component } from '@angular/core';
 import { Customerform2Component } from './customerform2/customerform2.component';
+import { NumberselectionComponent } from './numberselection/numberselection.component';
 
 export const routes: Routes = [
   {
@@ -18,8 +18,8 @@ export const routes: Routes = [
       { path: 'customerregister', component: CustomerregisterComponent },
       { path: 'status', component: StatustrackingComponent },
       { path: 'payment', component: PaymentComponent },
-      { path: 'addressform', component: Customerform1Component},
-      { path: 'documentform', component: Customerform2Component}
+      { path: 'documentform', component: Customerform2Component },
+      { path: 'numberselection', component: NumberselectionComponent },
     ]
   }
 ];

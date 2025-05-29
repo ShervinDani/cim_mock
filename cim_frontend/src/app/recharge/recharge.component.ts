@@ -18,7 +18,25 @@ export class RechargeComponent implements OnInit{
   ngOnInit(): void {
     this.planservice.getAllPlans().subscribe({
       next: (res) => {
-        this.data = res;
+        const customer = JSON.parse(sessionStorage.getItem('userDetails') || '{}');
+        if(Object.keys(customer).length == 0)
+        {
+          this.data = res;
+          console.log(this.data)
+        }
+        else
+        {
+          console.log(customer)
+          const plans = Array.isArray(res) ? res : res.array || [];
+          plans.forEach((element:any) => {
+            if(element.type == customer.type)
+            {
+              this.data.push(element);
+              console.log(element);
+            }
+            console.log(element.type, " ",customer.type);
+          });
+        }
         console.log(this.data);
       },
       error: (err) => {
@@ -28,7 +46,7 @@ export class RechargeComponent implements OnInit{
   }
   pay(data : any) : void {
     console.log(data)
-    localStorage.setItem("plan",JSON.stringify(data));
+    sessionStorage.setItem("plan",JSON.stringify(data));
     this.router.navigate(['retailer/home/payment'])
   }
 }

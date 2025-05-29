@@ -12,7 +12,6 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
   styleUrl: './app.component.css'
 })
 export class AppComponent {
-  title = 'cim_frontend';
 }
 // import { Component } from '@angular/core';
 // import { RouterOutlet } from '@angular/router';

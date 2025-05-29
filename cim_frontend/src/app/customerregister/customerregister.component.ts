@@ -21,7 +21,6 @@ export class CustomerregisterComponent {
       dateOfBirth: ['', Validators.required],
       gender: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
-      phoneNumber: ['', [Validators.required, Validators.pattern('^[0-9]{10}$')]],
       address: ['',Validators.required]
     });
   }
@@ -40,12 +39,6 @@ export class CustomerregisterComponent {
     
   } else {
     this.customerForm.markAllAsTouched();
-    Object.keys(this.customerForm.controls).forEach(key => {
-    const control = this.customerForm.get(key);
-    if (control && control.invalid) {
-      console.warn(`Invalid control: ${key}`, control.errors);
-    }
-  });
   }
   }
   

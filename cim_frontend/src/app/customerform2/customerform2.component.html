@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <div class="body">
   <div class="container file-upload">
     <h2>Document Form</h2>
@@ -19,3 +20,18 @@
       <button type="submit">Submit Document</button>
     </form>
 </div>
+=======
+<div class="container">
+  <h3>Document Upload</h3>
+  <form>
+    <label for="image">Choose Your Photo</label>
+    <br>
+    <input type="file" name="image" accept="image/*" (change)="onImageSelected($event)">
+    <br>
+    <label for="Doc">Choose Your Aadhar Card</label>
+    <br>
+    <input type="file" name="Doc" accept=".pdf,application/pdf" (change)="onDocumentSelected($event)" />
+    <button (click)="onSubmit($event)">Upload</button>
+  </form>
+</div>
+>>>>>>> 1c0442d22d8005328c0b6d3feffac1c209a8a13b
