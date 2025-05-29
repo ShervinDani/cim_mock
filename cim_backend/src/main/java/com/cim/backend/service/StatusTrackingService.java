@@ -2,9 +2,8 @@ package com.cim.backend.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import com.cim.backend.repository.CustomerDocumentRepository;
 import com.cim.backend.repository.CustomerRepository;
+import com.cim.backend.repository.DocumentRepository;
 
 @Service
 public class StatusTrackingService {
@@ -13,8 +12,8 @@ public class StatusTrackingService {
     private CustomerRepository customerRepository;
 
     @Autowired
-    private CustomerDocumentRepository documentRepository;
-
+    private DocumentRepository documentRepository;
+    
     public String getCustomerStatus(String phoneNumber) {
         return customerRepository.findByPhoneNumber(phoneNumber)
                 .map(customer -> documentRepository.findByCustomer(customer)

@@ -25,6 +25,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { StatustrackingComponent } from './statustracking.component';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { FormsModule } from '@angular/forms';
+import { NgIf, NgSwitch, NgSwitchCase, NgSwitchDefault } from '@angular/common';
 
 describe('StatustrackingComponent', () => {
   let component: StatustrackingComponent;
@@ -32,8 +33,15 @@ describe('StatustrackingComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [StatustrackingComponent],
-      imports: [HttpClientTestingModule, FormsModule]
+      imports: [
+        StatustrackingComponent,
+        HttpClientTestingModule,
+        FormsModule,
+        NgIf,
+        NgSwitch,
+        NgSwitchCase,
+        NgSwitchDefault
+      ]
     }).compileComponents();
 
     fixture = TestBed.createComponent(StatustrackingComponent);
@@ -48,7 +56,8 @@ describe('StatustrackingComponent', () => {
   it('should show error if phone number is empty', () => {
     component.phoneNumber = '';
     component.checkStatus();
-    expect(component.statusMessage).toBe('Please enter a valid phone number.');
+    expect(component.statusMessage).toBe('');
+    expect(component.errorMessage).toBe('Please enter a valid phone number.');
   });
 });
 

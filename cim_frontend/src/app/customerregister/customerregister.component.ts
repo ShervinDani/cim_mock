@@ -29,7 +29,7 @@ export class CustomerregisterComponent {
   if (this.customerForm.valid) {
     this.customerRegister.postCustomerRegister1(this.customerForm.value).subscribe({
       next: (res) => {
-        localStorage.setItem("userDetails",JSON.stringify(res));
+        sessionStorage.setItem("userDetails", JSON.stringify(res));
         this.router.navigate(['retailer/home/documentform']);
       },
       error: (err) => {

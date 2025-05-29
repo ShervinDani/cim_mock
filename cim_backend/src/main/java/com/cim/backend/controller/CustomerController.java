@@ -45,18 +45,30 @@ public class CustomerController {
 	}
 	
 	@PostMapping("/uploadDocument")
-	public Document uploadDocument(@RequestPart("image") MultipartFile image,@RequestPart("pdf") MultipartFile pdf,@RequestPart("customer") Customer customer) {
-		Document document = new Document();
-		document.setCustomer(customer);
-		try {
-			document.setImage(image.getBytes());
-			document.setPdf(pdf.getBytes());
-			document.setStatus(0);
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-		
-		return customerService.uploadDocument(document);
+	public Document uploadDocument(@RequestPart("image") MultipartFile image,
+	                               @RequestPart("pdf") MultipartFile pdf,
+	                               @RequestPart("customer") Customer customer) {
+	    Document document = new Document();
+	    try {
+	        Long customerId = customer.getCustomerId();
+	        if (customerId == null) {
+	            throw new IllegalArgumentException("Customer ID is missing in the request");
+	        }
+
+	        Customer persistentCustomer = customerService.getCustomerDetails(customerId);
+	        document.setCustomer(persistentCustomer);
+	        document.setImage(image.getBytes());
+	        document.setPdf(pdf.getBytes());
+	        document.setStatus(0);
+
+	    } catch (IOException e) {
+	        e.printStackTrace();
+	        throw new RuntimeException("Failed to read uploaded files", e);
+	    } catch (Exception e) {
+	        e.printStackTrace();
+	        throw new RuntimeException("Error processing document upload", e);
+	    }
+	    return customerService.uploadDocument(document);
 	}
 	
 	@GetMapping("/getAllActiveNumber")

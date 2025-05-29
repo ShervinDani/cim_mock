@@ -1,13 +1,13 @@
 package com.cim.backend.entity;
 
 import jakarta.persistence.*;
+import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 
 @Entity
 @Table(name = "cim_document")
-@Getter
-@Setter
+@Data
 public class Document {
 
     @Id
