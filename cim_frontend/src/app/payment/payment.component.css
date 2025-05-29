@@ -113,3 +113,21 @@ td {
   font-weight: bold;
   color: green;
 }
+
+.input-box {
+  width: 80%;
+  padding: 10px;
+  margin-bottom: 15px;
+  font-size: 16px;
+  border-radius: 10px; 
+  border: 1px solid #002147; 
+  transition: 0.3s;
+}
+
+.input-box:focus {
+  outline: none;
+  border-color: #002147;
+  box-shadow: 0 0 5px #002147;
+}
+
+

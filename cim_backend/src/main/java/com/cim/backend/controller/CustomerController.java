@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RequestPart;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
@@ -19,7 +20,7 @@ import com.cim.backend.entity.Number;
 import com.cim.backend.service.CustomerService;
 
 @RestController
-@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin(origins = "*")
 public class CustomerController {
 	
 	@Autowired
@@ -37,6 +38,12 @@ public class CustomerController {
 	public Customer getCustomerDetails(@RequestBody long customerId) {
 		return customerService.getCustomerDetails(customerId);
 		
+	}
+	
+	@GetMapping("/getCustomerDetailsByPhoneNumber")
+	public Customer getCustomerDetailsByPhoneNumber(@RequestParam String phoneNumber)
+	{
+		return customerService.getCustomerDetailsByPhoneNumber(phoneNumber);
 	}
 	
 	@PutMapping("/updateCustomer")
