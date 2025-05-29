@@ -3,7 +3,7 @@
   max-width: 600px;
   margin: 2rem auto;
   padding: 1.5rem 2rem;
-  background-color: #f5f8ff;
+  background-color: #eef3fb; /* Light background for contrast */
   border-radius: 12px;
   box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -11,7 +11,7 @@
 
 /* Main heading */
 .container.file-upload h2 {
-  color: #007bff;
+  color: #003366; /* Dark blue */
   margin-bottom: 1.5rem;
   font-weight: 700;
   text-align: center;
@@ -19,7 +19,7 @@
 
 /* Section headings */
 .file-upload h3 {
-  color: #007bff;
+  color: #003366;
   margin-bottom: 1rem;
   font-weight: 700;
 }
@@ -28,7 +28,7 @@
 .file-upload h4 {
   margin-top: 1rem;
   margin-bottom: 0.5rem;
-  color: #333;
+  color: #222;
 }
 
 /* File input */
@@ -38,7 +38,7 @@ input[type="file"] {
   padding: 0.4rem 0;
   font-size: 1rem;
   width: 100%;
-  border: 1.5px solid #ced4da;
+  border: 1.5px solid #99aabb;
   border-radius: 6px;
   cursor: pointer;
   transition: border-color 0.3s ease;
@@ -46,15 +46,15 @@ input[type="file"] {
 
 input[type="file"]:focus {
   outline: none;
-  border-color: #007bff;
-  box-shadow: 0 0 8px rgba(0, 123, 255, 0.3);
+  border-color: #003366;
+  box-shadow: 0 0 8px rgba(0, 51, 102, 0.3);
 }
 
 /* Image preview */
 .file-upload img {
   display: block;
   margin-bottom: 1rem;
-  border: 2px solid #ced4da;
+  border: 2px solid #aab;
   border-radius: 8px;
   max-width: 100%;
   height: auto;
@@ -67,7 +67,7 @@ textarea {
   padding: 0.6rem;
   font-size: 0.9rem;
   font-family: monospace;
-  border: 1.5px solid #ced4da;
+  border: 1.5px solid #aab;
   border-radius: 6px;
   resize: none;
   background-color: #fdfdfd;
@@ -77,13 +77,13 @@ textarea {
 hr {
   margin: 2rem 0;
   border: none;
-  border-top: 1.5px solid #ddd;
+  border-top: 1.5px solid #ccc;
 }
 
 /* Submit button */
 button {
   width: 100%;
-  background-color: #007bff;
+  background-color: #003366;
   color: #fff;
   border: none;
   padding: 0.65rem;
@@ -96,7 +96,35 @@ button {
 }
 
 button:hover {
-  background-color: #0056b3;
+  background-color: #002244;
+}
+
+/* Status result */
+.status-result {
+  margin-top: 1.5rem;
+  padding: 1rem 1.5rem;
+  background-color: #dce6f1; /* Soft light blue */
+  border-left: 5px solid #003366;
+  border-radius: 8px;
+  color: #003366;
+  font-weight: 600;
+  font-size: 1.1rem;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* Loading and error styles */
+.loading {
+  color: #003366;
+  font-weight: 600;
+  margin-top: 1rem;
+}
+
+.error {
+  color: #c0392b;
+  font-weight: 600;
+  margin-top: 1rem;
 }
 
 /* Responsive */

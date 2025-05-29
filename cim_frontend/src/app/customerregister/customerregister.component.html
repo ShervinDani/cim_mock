@@ -44,7 +44,7 @@
       <div *ngIf="customerForm.get('email')?.errors?.['email']">Please enter a valid email.</div>
     </div>
  
-    <label for="phoneNumber">Phone Number</label>
+    <label for="phoneNumber">Phone Number </label>
     <input id="phoneNumber" type="tel" formControlName="phoneNumber" placeholder="10 digits only" />
     <div *ngIf="customerForm.get('phoneNumber')?.invalid && customerForm.get('phoneNumber')?.touched" class="error">
       <div *ngIf="customerForm.get('phoneNumber')?.errors?.['required']">Phone Number is required.</div>
@@ -55,7 +55,7 @@
         <label for="address">Address</label>
       </div>
       <div class="right-address">
-        <textarea id="address" formControlName="address" rows="4" cols="50" placeholder="Enter your address"></textarea>
+        <textarea id="address" formControlName="address" rows="3" cols="50" placeholder="Enter your address"></textarea>
         <div *ngIf="customerForm.get('address')?.invalid && (customerForm.get('address')?.touched || customerForm.get('address')?.dirty)" class="error">
           <div class="error">Address is required.</div>
         </div>
