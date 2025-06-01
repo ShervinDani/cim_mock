@@ -62,5 +62,9 @@ public class CustomerService {
 	public List<Number> getAllActiveNumbers(){
 		return numberRepository.findByStatus(0);
 	}
+	public Customer getCustomerDetailsByPhoneNumber(String phoneNumber) {
+		
+		return customerRepository.findByPhoneNumber(phoneNumber).get();
+	}
 
 }

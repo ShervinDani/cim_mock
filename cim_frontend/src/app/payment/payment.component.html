@@ -79,6 +79,18 @@
   </div>
 
   <div class="right">
+        <div class="status-container" *ngIf="isCustomerAvailable==false">
+  <h2>Enter Number</h2>
+  <input
+    type="text"
+    [(ngModel)]="phoneNumber"
+    placeholder="Enter phone number"
+    class="input-box"
+  />
+
+  <button (click)="getDetails()" class="check-btn">Check Number</button>
+</div>
+<br>
     <h1>Payment Gateway</h1>
 
     <button class="check-btn" (click)="payAndSubmit()" [disabled]="loading">
