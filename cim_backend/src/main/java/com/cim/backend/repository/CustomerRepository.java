@@ -7,9 +7,10 @@ import org.springframework.stereotype.Repository;
 import com.cim.backend.entity.Customer;
 import java.util.List;
 
-
-
 @Repository
 public interface CustomerRepository extends JpaRepository<Customer, Long>{
-	Optional<Customer> findByPhoneNumber(String mobileNumber);
+	Optional<Customer> findByPhoneNumber(String phoneNumber);
+	
+	boolean existsByPhoneNumber(String phoneNumber);
+
 }

@@ -1,0 +1,17 @@
+<div class="status-container">
+  <h2>Recharge: Enter Mobile Number</h2>
+
+  <input
+    type="text"
+    [(ngModel)]="phoneNumber"
+    placeholder="Enter mobile number"
+    class="input-box"
+  />
+
+  <button (click)="verifyNumber()" class="check-btn">Proceed</button>
+</div>
+
+<div class="status-display">
+  <div *ngIf="isLoading" class="loading">Checking number...</div>
+  <div *ngIf="errorMessage" class="error">{{ errorMessage }}</div>
+</div>

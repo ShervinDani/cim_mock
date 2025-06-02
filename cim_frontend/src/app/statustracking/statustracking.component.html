@@ -19,19 +19,31 @@
   <div *ngIf="!isLoading && statusMessage" class="status-result-container">
     <span class="status-label">Status:</span>
     <span [ngSwitch]="statusMessage.toLowerCase()" class="status-text">
+
       <span *ngSwitchCase="'pending'">
         <i class="fa fa-hourglass-half" style="color: orange; margin-left: 5px;"></i> Pending
       </span>
+
       <span *ngSwitchCase="'approved'">
         <i class="fa fa-check-circle" style="color: green; margin-left: 5px;"></i> Approved
       </span>
+
       <span *ngSwitchCase="'rejected'">
         <i class="fa fa-times-circle" style="color: red; margin-left: 5px;"></i> Rejected
       </span>
+
+      <span *ngSwitchCase="'active'">
+        <i class="fa fa-check-circle" style="color: green; margin-left: 5px;"></i> Active
+      </span>
+
+      <span *ngSwitchCase="'inactive'">
+        <i class="fa fa-ban" style="color: gray; margin-left: 5px;"></i> Inactive
+      </span>
+
       <span *ngSwitchDefault>
         {{ statusMessage }}
       </span>
+
     </span>
   </div>
 </div>
-

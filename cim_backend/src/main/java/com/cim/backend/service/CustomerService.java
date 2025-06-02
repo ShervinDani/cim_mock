@@ -66,5 +66,10 @@ public class CustomerService {
 		
 		return customerRepository.findByPhoneNumber(phoneNumber).get();
 	}
+	
+	public boolean checkNumberExists(String phoneNumber) {
+		return customerRepository.existsByPhoneNumber(phoneNumber);
+
+    }
 
 }

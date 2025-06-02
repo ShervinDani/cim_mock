@@ -78,6 +78,11 @@ public class CustomerController {
 	    return customerService.uploadDocument(document);
 	}
 	
+	@GetMapping("/checknumber")
+    public boolean checkNumberExists(@RequestParam String phoneNumber) {
+        return customerService.checkNumberExists(phoneNumber);
+    }
+	
 	@GetMapping("/getAllActiveNumber")
 	public List<Number> getAllActiveNumber()
 	{

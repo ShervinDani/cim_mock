@@ -1,12 +1,12 @@
- <div class="header">
+<div class="header">
   <div class="left-header">
     <h1>CRM</h1>
   </div>
   <div class="right-header">
       <nav>
-        <a [routerLink]="['recharge']" routerLinkActive="router-link-active">
+        <a [routerLink]="['checknumber']" routerLinkActive="router-link-active">
           Recharge
-        </a>
+        </a> 
         <a [routerLink]="['customerregister']" routerLinkActive="router-link-active">
           Register Customer
         </a>
@@ -17,8 +17,5 @@
   </div>
  </div>
 
-
-
+ <router-outlet></router-outlet>
  
-
-<router-outlet></router-outlet>

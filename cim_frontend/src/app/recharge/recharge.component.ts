@@ -3,50 +3,49 @@ import { PlanretriveService } from '../planretrive.service';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
 
+interface Customer {
+  customerId: number;
+  name: string;
+  phoneNumber: string;
+  type?: string;
+}
+
 @Component({
   selector: 'app-recharge',
   imports: [CommonModule],
   templateUrl: './recharge.component.html',
   styleUrls: ['./recharge.component.css']
 })
-export class RechargeComponent implements OnInit{
+export class RechargeComponent implements OnInit {
 
-  data : any[]=[];
+  data: any[] = [];
+  customer: Customer | null = null;
 
-  constructor(private planservice : PlanretriveService, private router : Router){}
+  constructor(private planservice: PlanretriveService, private router: Router) {}
 
   ngOnInit(): void {
+    
+    const customerStr = sessionStorage.getItem('userDetails');
+    this.customer = customerStr ? JSON.parse(customerStr) : null;
+
     this.planservice.getAllPlans().subscribe({
-      next: (res) => {
-        const customer = JSON.parse(sessionStorage.getItem('userDetails') || '{}');
-        if(Object.keys(customer).length == 0)
-        {
+      next: (res: any[]) => {
+        if (!this.customer || !this.customer.type) {
+          
           this.data = res;
-          console.log(this.data)
+        } else {
+          
+          this.data = res.filter(plan => plan.type === this.customer!.type);
         }
-        else
-        {
-          console.log(customer)
-          const plans = Array.isArray(res) ? res : res.array || [];
-          plans.forEach((element:any) => {
-            if(element.type == customer.type)
-            {
-              this.data.push(element);
-              console.log(element);
-            }
-            console.log(element.type, " ",customer.type);
-          });
-        }
-        console.log(this.data);
       },
       error: (err) => {
-        console.error('Error:', err);
+        console.error('Error fetching plans:', err);
       }
     });
   }
-  pay(data : any) : void {
-    console.log(data)
-    sessionStorage.setItem("plan",JSON.stringify(data));
-    this.router.navigate(['retailer/home/payment'])
+
+  pay(plan: any): void {
+    sessionStorage.setItem('plan', JSON.stringify(plan));
+    this.router.navigate(['/retailer/home/payment']);
   }
 }
